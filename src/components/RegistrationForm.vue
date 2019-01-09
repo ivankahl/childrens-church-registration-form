@@ -1,26 +1,46 @@
 <template>
   <v-form>
-    <p class='subheader'>Please fill in the form below to register your child for Children's Church.</p>
+    <p class="subheader">
+      Please fill in the form below to register your child for Children's
+      Church.
+    </p>
     <h2 class="section-header">Child Information</h2>
     <p>Please enter in your child's details below</p>
     <v-expansion-panel expand v-model="panels.children">
-      <v-expansion-panel-content v-for="(child, index) in children" :key="index" :value="true">
+      <v-expansion-panel-content
+        v-for="(child, index) in children"
+        :key="index"
+        :value="true"
+      >
         <div slot="header">
-          <v-icon>child_care</v-icon> <span style='margin-left: 20px; font-weight:bold; font-size:1.1em;'>{{ child.firstName }} {{ child.lastName }}</span>
+          <v-icon>child_care</v-icon>
+          <span style="margin-left: 20px; font-weight:bold; font-size:1.1em;"
+            >{{ child.firstName }} {{ child.lastName }}</span
+          >
         </div>
         <v-container>
-          <child-form :data="child" :errors="errors.children[index]"/>
-          <v-btn @click="removeChild(index)" dark color="red" block>Remove</v-btn>
+          <child-form :data="child" :errors="errors.children[index]" />
+          <v-btn @click="removeChild(index);" dark color="red" block
+            >Remove</v-btn
+          >
         </v-container>
       </v-expansion-panel-content>
     </v-expansion-panel>
-    <br/>
-    <v-btn block color="cyan" dark @click="addChild()">Add Child</v-btn>
+    <br />
+    <v-btn block color="cyan" dark @click="addChild();">Add Child</v-btn>
     <h2 class="section-header">Parent/Guardian Information</h2>
-    <p>Please fill in contact information for parents here.  You can fill in up two contact people.</p>
+    <p>
+      Please fill in contact information for parents here. You can fill in up
+      two contact people.
+    </p>
     <v-expansion-panel expand v-model="panels.contacts">
       <v-expansion-panel-content>
-        <div slot="header"><v-icon>person</v-icon> <span style='margin-left: 20px; font-weight:bold; font-size:1.1em;'>Contact Person 1</span></div>
+        <div slot="header">
+          <v-icon>person</v-icon>
+          <span style="margin-left: 20px; font-weight:bold; font-size:1.1em;"
+            >Contact Person 1</span
+          >
+        </div>
         <v-container>
           <p>Please fill in the details for the first contact person below.</p>
           <v-layout>
@@ -51,26 +71,37 @@
             :error-messages="errors.contacts.first.lifegroup"
             required
             outline
-            label="Life Group*"/>
+            label="Life Group*"
+          />
           <v-text-field
             v-model="contacts.first.contactNumber"
             :error-messages="errors.contacts.first.contactNumber"
             required
             mask="phone"
             outline
-            label="Contact Number*"/>
+            label="Contact Number*"
+          />
           <v-text-field
             v-model="contacts.first.alternateContactNumber"
             :error-messages="errors.contacts.first.alternateContactNumber"
             mask="phone"
             outline
-            label="Alternate Contact Number"/>
+            label="Alternate Contact Number"
+          />
         </v-container>
       </v-expansion-panel-content>
       <v-expansion-panel-content>
-        <div slot="header"><v-icon>person</v-icon> <span style='margin-left: 20px; font-weight:bold; font-size:1.1em;'>Contact Person 2 (optional)</span></div>
+        <div slot="header">
+          <v-icon>person</v-icon>
+          <span style="margin-left: 20px; font-weight:bold; font-size:1.1em;"
+            >Contact Person 2 (optional)</span
+          >
+        </div>
         <v-container>
-          <p>If possible, please fill in contact details for a second person in the event that we cannot contact the first contact person.</p>
+          <p>
+            If possible, please fill in contact details for a second person in
+            the event that we cannot contact the first contact person.
+          </p>
           <v-layout>
             <v-flex xs12 md6>
               <v-text-field
@@ -96,34 +127,71 @@
             v-model="contacts.second.lifegroup"
             required
             outline
-            label="Life Group"/>
+            label="Life Group"
+          />
           <v-text-field
             v-model="contacts.second.contactNumber"
             required
             mask="phone"
             outline
-            label="Contact Number"/>
+            label="Contact Number"
+          />
           <v-text-field
             v-model="contacts.second.alternateContactNumber"
             required
             mask="phone"
             outline
-            label="Alternate Contact Number"/>
+            label="Alternate Contact Number"
+          />
         </v-container>
       </v-expansion-panel-content>
     </v-expansion-panel>
     <h2 class="section-header">Almost there!</h2>
-    <p>Please read and accept the conditions below in order for your child to attend Children's Church.</p>
+    <p>
+      Please read and accept the conditions below in order for your child to
+      attend Children's Church.
+    </p>
     <h3 class="section-header-2">Tag Policy</h3>
-    <p>I understand that my child needs to be dropped and collected by an adult with the issued tag.</p>
-    <v-checkbox color="cyan" v-model="policies.tag" :error-messages="errors.policies.tag" label="I have read and accept the Tag Policy above."/>
+    <p>
+      I understand that my child needs to be dropped and collected by an adult
+      with the issued tag.
+    </p>
+    <v-checkbox
+      color="cyan"
+      v-model="policies.tag"
+      :error-messages="errors.policies.tag"
+      label="I have read and accept the Tag Policy above."
+    />
     <h3 class="section-header-2">Medical Release Policy</h3>
-    <p>I/we understand that, in the event of medical treatment being required, every effort will be made to contact me. However, if I cannot be reached, I give my permission to the staff or sponsor to procure medical treatment, including anesthesia, for my child's wellbeing.</p>
-    <v-checkbox color="cyan" v-model="policies.medicalRelease" :error-messages="errors.policies.medicalRelease" label="I have read and accept the Medical Release Policy above."/>
+    <p>
+      I/we understand that, in the event of medical treatment being required,
+      every effort will be made to contact me. However, if I cannot be reached,
+      I give my permission to the staff or sponsor to procure medical treatment,
+      including anesthesia, for my child's wellbeing.
+    </p>
+    <v-checkbox
+      color="cyan"
+      v-model="policies.medicalRelease"
+      :error-messages="errors.policies.medicalRelease"
+      label="I have read and accept the Medical Release Policy above."
+    />
     <h3 class="section-header-2">Indemnity</h3>
-    <p>I, the parent/guardian of the above-mentioned child/children, will not hold any of the teachers responsible for any mishap whatsoever that might occur to my child while at Cornerstone Church Kids Ministry 2019. I understand that every care will be taken and the children will be supervised at all times.</p>
-    <v-checkbox color="cyan" v-model="policies.indemnity" :error-messages="errors.policies.indemnity" label="I have read and accept the Indemnity above."/>
-    <v-btn color="cyan" block dark @click="register" :loading="submitting">Register</v-btn>
+    <p>
+      I, the parent/guardian of the above-mentioned child/children, will not
+      hold any of the teachers responsible for any mishap whatsoever that might
+      occur to my child while at Cornerstone Church Kids Ministry 2019. I
+      understand that every care will be taken and the children will be
+      supervised at all times.
+    </p>
+    <v-checkbox
+      color="cyan"
+      v-model="policies.indemnity"
+      :error-messages="errors.policies.indemnity"
+      label="I have read and accept the Indemnity above."
+    />
+    <v-btn color="cyan" block dark @click="register" :loading="submitting"
+      >Register</v-btn
+    >
     <v-snackbar
       v-model="errors.showToast"
       color="red"
@@ -137,15 +205,15 @@
 </template>
 
 <script>
-import ChildForm from './ChildForm';
-import axios from 'axios';
-import moment from 'moment';
+import ChildForm from "./ChildForm";
+import axios from "axios";
+import moment from "moment";
 
 export default {
   components: {
     ChildForm
   },
-  props: ['done'],
+  props: ["done"],
   name: "RegistrationForm",
   methods: {
     removeChild: function(childIndex) {
@@ -155,23 +223,23 @@ export default {
     },
     addChild: function() {
       this.children.push({
-        firstName: '',
-        lastName: '',
-        dateOfBirth: '',
-        grade: '',
-        gender: '',
-        allergies: '',
-        anythingElse: ''
+        firstName: "",
+        lastName: "",
+        dateOfBirth: "",
+        grade: "",
+        gender: "",
+        allergies: "",
+        anythingElse: ""
       });
 
       this.errors.children.push({
-        firstName: '',
-        lastName: '',
-        dateOfBirth: '',
-        grade: '',
-        gender: '',
-        allergies: '',
-        anythingElse: ''
+        firstName: "",
+        lastName: "",
+        dateOfBirth: "",
+        grade: "",
+        gender: "",
+        allergies: "",
+        anythingElse: ""
       });
 
       this.panels.children.push(true);
@@ -193,44 +261,75 @@ export default {
           var child = this.children[i];
           formData.append("First Name", child.firstName);
           formData.append("Last Name", child.lastName);
-          formData.append("Date of Birth", moment(child.dateOfBirth).format("DD/MM/YYYY"));
+          formData.append(
+            "Date of Birth",
+            moment(child.dateOfBirth).format("DD/MM/YYYY")
+          );
           formData.append("Grade", child.grade);
-          formData.append("Gender", "");
-          formData.append("Allergies", "");
-          formData.append("Anything else", "");
+          formData.append("Gender", child.gender);
+          formData.append("Allergies", child.allergies);
+          formData.append("Anything else", child.anythingElse);
 
-          formData.append("Contact Person 1 First Name", contactPerson1.firstName);
-          formData.append("Contact Person 1 Last Name", contactPerson1.lastName);
-          formData.append("Contact Person 1 Lifegroup", contactPerson1.lifegroup);
-          formData.append("Contact Person 1 Contact Number", "'" + contactPerson1.contactNumber);
-          formData.append("Contact Person 1 Alternate Contact Number", "'" + contactPerson1.alternateContactNumber);
+          formData.append(
+            "Contact Person 1 First Name",
+            contactPerson1.firstName
+          );
+          formData.append(
+            "Contact Person 1 Last Name",
+            contactPerson1.lastName
+          );
+          formData.append(
+            "Contact Person 1 Lifegroup",
+            contactPerson1.lifegroup
+          );
+          formData.append(
+            "Contact Person 1 Contact Number",
+            "'" + contactPerson1.contactNumber
+          );
+          formData.append(
+            "Contact Person 1 Alternate Contact Number",
+            "'" + contactPerson1.alternateContactNumber
+          );
 
-          formData.append("Contact Person 2 First Name", contactPerson2.firstName);
-          formData.append("Contact Person 2 Last Name", contactPerson2.lastName);
-          formData.append("Contact Person 2 Contact Number", "'" + contactPerson2.contactNumber);
-          formData.append("Contact Person 2 Alternate Contact Number", "'" + contactPerson2.alternateContactNumber);
+          formData.append(
+            "Contact Person 2 First Name",
+            contactPerson2.firstName
+          );
+          formData.append(
+            "Contact Person 2 Last Name",
+            contactPerson2.lastName
+          );
+          formData.append(
+            "Contact Person 2 Contact Number",
+            "'" + contactPerson2.contactNumber
+          );
+          formData.append(
+            "Contact Person 2 Alternate Contact Number",
+            "'" + contactPerson2.alternateContactNumber
+          );
 
           formData.append("Tag Policy", "Yes");
           formData.append("Medical Release", "Yes");
           formData.append("Indemnity", "Yes");
 
           axios({
-            method: 'post',
-            url: 'https://script.google.com/macros/s/AKfycbwOeNI1_4Dlm27_34hsHDYic95BOQF2EMdBSC-YnXnDP2JkjY1U/exec',
+            method: "post",
+            url:
+              "https://script.google.com/macros/s/AKfycbwOeNI1_4Dlm27_34hsHDYic95BOQF2EMdBSC-YnXnDP2JkjY1U/exec",
             data: formData,
-            config: { headers: { 'Content-Type' : 'multipart/form-data'}}
+            config: { headers: { "Content-Type": "multipart/form-data" } }
           })
-          .then(function(response) {
-            numberProcessed++;
-            
-            if (numberProcessed === t.children.length) {
-              t.$emit('doneRegistering');
-            }
-          })
-          .catch(function(response) {
-            numberProcessed++;
-            console.log(response);
-          });
+            .then(function(response) {
+              numberProcessed++;
+
+              if (numberProcessed === t.children.length) {
+                t.$emit("doneRegistering");
+              }
+            })
+            .catch(function(response) {
+              numberProcessed++;
+              console.log(response);
+            });
         }
       }
     },
@@ -243,107 +342,115 @@ export default {
       for (var i = 0; i < this.children.length; i++) {
         var child = this.children[i];
 
-        if (child.firstName === '') {
-          this.errors.children[i].firstName = "Please enter the child's first name."
+        if (child.firstName === "") {
+          this.errors.children[i].firstName =
+            "Please enter the child's first name.";
           anyErrors = true;
         }
 
-        if (child.lastName === '') {
-          this.errors.children[i].lastName = "Please enter the child's last name."
+        if (child.lastName === "") {
+          this.errors.children[i].lastName =
+            "Please enter the child's last name.";
           anyErrors = true;
         }
 
-        if (child.dateOfBirth === '') {
-          this.errors.children[i].dateOfBirth = "Please enter the child's date of birth."
+        if (child.dateOfBirth === "") {
+          this.errors.children[i].dateOfBirth =
+            "Please enter the child's date of birth.";
           anyErrors = true;
         }
 
-        if (child.grade === '') {
-          this.errors.children[i].grade = "Please select the child's grade."
+        if (child.grade === "") {
+          this.errors.children[i].grade = "Please select the child's grade.";
           anyErrors = true;
         }
 
-        if (child.gender === '') {
-          this.errors.children[i].gender = "Please select the child's gender."
+        if (child.gender === "") {
+          this.errors.children[i].gender = "Please select the child's gender.";
           anyErrors = true;
         }
       }
 
       // Check the first contact
       var firstContact = this.contacts.first;
-      if (firstContact.firstName === '') {
-        this.errors.contacts.first.firstName = "Please enter in the first contact person's first name."
-        anyErrors = true;
-        }
-
-      if (firstContact.lastName === '') {
-        this.errors.contacts.first.lastName = "Please enter in the first contact person's last name."
+      if (firstContact.firstName === "") {
+        this.errors.contacts.first.firstName =
+          "Please enter in the first contact person's first name.";
         anyErrors = true;
       }
 
-      if (firstContact.lifegroup === '') {
-        this.errors.contacts.first.lifegroup = "Please enter in the first contact person's life group."
+      if (firstContact.lastName === "") {
+        this.errors.contacts.first.lastName =
+          "Please enter in the first contact person's last name.";
         anyErrors = true;
       }
 
-      if (firstContact.contactNumber === '') {
-        this.errors.contacts.first.contactNumber = "Please enter in the first contact person's contact number."
+      if (firstContact.lifegroup === "") {
+        this.errors.contacts.first.lifegroup =
+          "Please enter in the first contact person's life group.";
+        anyErrors = true;
+      }
+
+      if (firstContact.contactNumber === "") {
+        this.errors.contacts.first.contactNumber =
+          "Please enter in the first contact person's contact number.";
         anyErrors = true;
       }
 
       // Check policies
       if (!this.policies.tag) {
-        this.errors.policies.tag = 'Please read and accept the Tag Policy.'
+        this.errors.policies.tag = "Please read and accept the Tag Policy.";
         anyErrors = true;
       }
 
       if (!this.policies.medicalRelease) {
-        this.errors.policies.medicalRelease = 'Please read and accept the Medical Release Policy.'
+        this.errors.policies.medicalRelease =
+          "Please read and accept the Medical Release Policy.";
         anyErrors = true;
       }
 
       if (!this.policies.indemnity) {
-        this.errors.policies.indemnity = 'Please read and accept the Indemnity.'
+        this.errors.policies.indemnity =
+          "Please read and accept the Indemnity.";
         anyErrors = true;
       }
-      
-      if (anyErrors) 
-        this.errors.showToast = true;
+
+      if (anyErrors) this.errors.showToast = true;
 
       return !anyErrors;
     },
     resetErrors: function() {
       this.errors.contacts = {
         first: {
-          firstName: '',
-          lastName: '',
-          contactNumber: '',
-          alternateContactNumber: ''
+          firstName: "",
+          lastName: "",
+          contactNumber: "",
+          alternateContactNumber: ""
         },
         second: {
-          firstName: '',
-          lastName: '',
-          contactNumber: '',
-          alternateContactNumber: ''
+          firstName: "",
+          lastName: "",
+          contactNumber: "",
+          alternateContactNumber: ""
         }
       };
 
       this.errors.policies = {
-        tag: '',
-        medicalRelease: '',
-        indemnity: ''
+        tag: "",
+        medicalRelease: "",
+        indemnity: ""
       };
 
       for (var i = 0; i < this.errors.children.length; i++) {
         this.errors.children[i] = {
-          firstName: '',
-          lastName: '',
-          dateOfBirth: '',
-          grade: '',
-          gender: '',
-          allergies: '',
-          anythingElse: ''
-        }
+          firstName: "",
+          lastName: "",
+          dateOfBirth: "",
+          grade: "",
+          gender: "",
+          allergies: "",
+          anythingElse: ""
+        };
       }
     }
   },
@@ -353,18 +460,18 @@ export default {
       children: [],
       contacts: {
         first: {
-          firstName: '',
-          lastName: '',
-          contactNumber: '',
-          alternateContactNumber: '',
-          lifegroup: ''
+          firstName: "",
+          lastName: "",
+          contactNumber: "",
+          alternateContactNumber: "",
+          lifegroup: ""
         },
         second: {
-          firstName: '',
-          lastName: '',
-          contactNumber: '',
-          alternateContactNumber: '',
-          lifegroup: ''
+          firstName: "",
+          lastName: "",
+          contactNumber: "",
+          alternateContactNumber: "",
+          lifegroup: ""
         }
       },
       policies: {
@@ -380,22 +487,22 @@ export default {
         children: [],
         contacts: {
           first: {
-            firstName: '',
-            lastName: '',
-            contactNumber: '',
-            alternateContactNumber: ''
+            firstName: "",
+            lastName: "",
+            contactNumber: "",
+            alternateContactNumber: ""
           },
           second: {
-            firstName: '',
-            lastName: '',
-            contactNumber: '',
-            alternateContactNumber: ''
+            firstName: "",
+            lastName: "",
+            contactNumber: "",
+            alternateContactNumber: ""
           }
         },
         policies: {
-          tag: '',
-          medicalRelease: '',
-          indemnity: ''
+          tag: "",
+          medicalRelease: "",
+          indemnity: ""
         },
         showToast: false
       }
