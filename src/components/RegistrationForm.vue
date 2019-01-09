@@ -1,6 +1,6 @@
 <template>
   <v-form>
-    <p class='subheader'>Please fill in the form below to register your child for Kids Ministry.</p>
+    <p class='subheader'>Please fill in the form below to register your child for Children's Church.</p>
     <h2 class="section-header">Child Information</h2>
     <p>Please enter in your child's details below</p>
     <v-expansion-panel expand v-model="panels.children">

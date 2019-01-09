@@ -3,7 +3,7 @@
     <v-card color="cyan" dark tile flat height=200></v-card>
     <v-card raised light class="content-container mx-auto">
       <v-container>
-        <h1 class="display-2 font-weight-regular page-title">Kids Ministry Registration</h1>
+        <h1 class="display-2 font-weight-regular page-title">Children's Church Registration</h1>
         
         <registration-form v-on:doneRegistering="registered = true" v-if="!registered"></registration-form>
         <done-page v-else></done-page>
