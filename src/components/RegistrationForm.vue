@@ -123,7 +123,7 @@
     <h3 class="section-header-2">Indemnity</h3>
     <p>I, the parent/guardian of the above-mentioned child/children, will not hold any of the teachers responsible for any mishap whatsoever that might occur to my child while at Cornerstone Church Kids Ministry 2019. I understand that every care will be taken and the children will be supervised at all times.</p>
     <v-checkbox color="cyan" v-model="policies.indemnity" :error-messages="errors.policies.indemnity" label="I have read and accept the Indemnity above."/>
-    <v-btn color="cyan" block dark @click="register">Register</v-btn>
+    <v-btn color="cyan" block dark @click="register" :loading="submitting">Register</v-btn>
     <v-snackbar
       v-model="errors.showToast"
       color="red"
@@ -184,6 +184,7 @@ export default {
         var contactPerson2 = this.contacts.second;
 
         var numberProcessed = 0;
+        this.submitting = true;
         var t = this;
 
         for (var i = 0; i < this.children.length; i++) {
@@ -348,6 +349,7 @@ export default {
   },
   data() {
     return {
+      submitting: false,
       children: [],
       contacts: {
         first: {
