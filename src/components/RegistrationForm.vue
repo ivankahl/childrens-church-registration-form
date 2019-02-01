@@ -67,13 +67,6 @@
             </v-flex>
           </v-layout>
           <v-text-field
-            v-model="contacts.first.lifegroup"
-            :error-messages="errors.contacts.first.lifegroup"
-            required
-            outline
-            label="Life Group*"
-          />
-          <v-text-field
             v-model="contacts.first.contactNumber"
             :error-messages="errors.contacts.first.contactNumber"
             required
@@ -87,6 +80,13 @@
             mask="phone"
             outline
             label="Alternate Contact Number"
+          />
+          <v-text-field
+            v-model="contacts.first.lifegroup"
+            :error-messages="errors.contacts.first.lifegroup"
+            required
+            outline
+            label="Life Group*"
           />
         </v-container>
       </v-expansion-panel-content>
@@ -124,12 +124,6 @@
             </v-flex>
           </v-layout>
           <v-text-field
-            v-model="contacts.second.lifegroup"
-            required
-            outline
-            label="Life Group"
-          />
-          <v-text-field
             v-model="contacts.second.contactNumber"
             required
             mask="phone"
@@ -142,6 +136,12 @@
             mask="phone"
             outline
             label="Alternate Contact Number"
+          />
+          <v-text-field
+            v-model="contacts.second.lifegroup"
+            required
+            outline
+            label="Life Group"
           />
         </v-container>
       </v-expansion-panel-content>
