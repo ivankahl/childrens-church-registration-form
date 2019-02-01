@@ -137,12 +137,6 @@
             outline
             label="Alternate Contact Number"
           />
-          <v-text-field
-            v-model="contacts.second.lifegroup"
-            required
-            outline
-            label="Life Group"
-          />
         </v-container>
       </v-expansion-panel-content>
     </v-expansion-panel>
