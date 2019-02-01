@@ -305,6 +305,7 @@ export default {
           formData.append("Tag Policy", "Yes");
           formData.append("Medical Release", "Yes");
           formData.append("Indemnity", "Yes");
+          formData.append("Tag Number", "");
 
           axios({
             method: "post",
