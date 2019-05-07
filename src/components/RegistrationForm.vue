@@ -310,7 +310,7 @@ export default {
           axios({
             method: "post",
             url:
-              "https://script.google.com/macros/s/AKfycbwOeNI1_4Dlm27_34hsHDYic95BOQF2EMdBSC-YnXnDP2JkjY1U/exec",
+              "/api/submit",
             data: formData,
             config: { headers: { "Content-Type": "multipart/form-data" } }
           })
