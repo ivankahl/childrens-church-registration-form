@@ -173,7 +173,7 @@
     <p>
       I, the parent/guardian of the above-mentioned child/children, will not
       hold any of the teachers responsible for any mishap whatsoever that might
-      occur to my child while at Cornerstone Church Kids Ministry 2019. I
+      occur to my child while at Cornerstone Church Kids Ministry 2021. I
       understand that every care will be taken and the children will be
       supervised at all times.
     </p>
