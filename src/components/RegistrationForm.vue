@@ -147,8 +147,9 @@
     </p>
     <h3 class="section-header-2">Tag Policy</h3>
     <p>
-      I understand that my child needs to be dropped and collected by an adult
-      with the issued tag.
+      I, the parent/guardian understand that my child/ren need to be dropped
+      and collected by an adult with the issued tag and that I will be on the
+      premises for the duration of the church service.
     </p>
     <v-checkbox
       color="cyan"
@@ -171,11 +172,12 @@
     />
     <h3 class="section-header-2">Indemnity</h3>
     <p>
-      I, the parent/guardian of the above-mentioned child/children, will not
-      hold any of the teachers responsible for any mishap whatsoever that might
-      occur to my child while at Cornerstone Church Kids Ministry 2021. I
-      understand that every care will be taken and the children will be
-      supervised at all times.
+      I, the parent/guardian, of the above-mentioned child/ren, will not hold
+      any of the leaders or volunteers responsible for any mishap whatsoever
+      that might occur to my child/ren while at Cornerstone Children's Church.
+      I will not leave the church premises without my child/ren. I understand
+      that a specific tag will be issued per child and that my child/ren can
+      only be collected by an adult with this specific tag, as per the tag policy.
     </p>
     <v-checkbox
       color="cyan"
