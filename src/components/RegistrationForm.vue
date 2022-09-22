@@ -282,7 +282,7 @@ export default {
       console.log(this.children);
     },
     register: function() {
-      if (this.validate()) {
+      if (this.validateFinal()) {
         // For easier reference later
         var contactPerson1 = this.contacts.first;
         var contactPerson2 = this.contacts.second;
