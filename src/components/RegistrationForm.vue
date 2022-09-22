@@ -311,10 +311,6 @@ export default {
             contactPerson1.lastName
           );
           formData.append(
-            "Contact Person 1 Lifegroup",
-            contactPerson1.lifegroup
-          );
-          formData.append(
             "Contact Person 1 Contact Number",
             "'" + contactPerson1.contactNumber
           );
