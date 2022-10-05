@@ -6,7 +6,7 @@
         <h1 class="display-2 font-weight-regular page-title">
           Equip Kids' Registration
         </h1>
-        <p>Online registration is closed, but you can still register your kids on the day at the registration table.</p>
+        <p style="margin-top: 20px">Online registration is closed, but you can still register your kids on the day at the registration table.</p>
       </v-container>
     </v-card>
   </v-app>
