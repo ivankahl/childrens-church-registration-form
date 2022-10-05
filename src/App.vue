@@ -6,12 +6,7 @@
         <h1 class="display-2 font-weight-regular page-title">
           Equip Kids' Registration
         </h1>
-
-        <registration-form
-          v-on:doneRegistering="registered = true"
-          v-if="!registered"
-        ></registration-form>
-        <done-page v-else></done-page>
+        <p>Online registration is closed, but you can still register your kids on the day at the registration table.</p>
       </v-container>
     </v-card>
   </v-app>
